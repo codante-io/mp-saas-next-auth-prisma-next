@@ -14,10 +14,11 @@ import {
 import { cn } from '@/lib/utils';
 import { User } from 'lucide-react';
 import { usePathname } from 'next/navigation';
+import Form from 'next/form';
+import logoutAction from '../(auth)/(logout)/logoutAction';
 
 export default function Navbar({ userName }: { userName: string }) {
   const pathname = usePathname();
-  console.log(pathname);
 
   return (
     <header className="bg-white shadow-sm">
@@ -62,7 +63,9 @@ export default function Navbar({ userName }: { userName: string }) {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem asChild>
-                <button>Logout</button>
+                <Form action={logoutAction}>
+                  <button>Logout</button>
+                </Form>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
